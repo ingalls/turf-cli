@@ -52,8 +52,11 @@ if (argv._[0]) {
 
 var processStream = inputStream.pipe(geojsonStream.parse());
 
-processStream.on('data', function(data) {
-    data = JSON.stringify(pointOnSurface(data));
+processStream.on('data', function(feature) {
+    var newFeature = pointOnSurface(feature);
+    newFeature.properties = feature.properties;
+    newFeature = JSON.stringify(newFeature);
+    
     if (!firstOutput) {
         data = ",\n" + data;
     } else {
