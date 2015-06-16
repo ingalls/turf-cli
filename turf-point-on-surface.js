@@ -58,12 +58,12 @@ processStream.on('data', function(feature) {
     newFeature = JSON.stringify(newFeature);
     
     if (!firstOutput) {
-        data = ",\n" + data;
+        newFeature = ",\n" + newFeature;
     } else {
         outputStream.write('{ "type": "FeatureCollection", "features": [');
     }
     firstOutput = false;
-    outputStream.write(data); 
+    outputStream.write(newFeature); 
 });
 
 processStream.on('error', function(err) {
