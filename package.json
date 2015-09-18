@@ -20,6 +20,8 @@
     "geojson-stream": "0.0.0",
     "minimist": "^1.1.1",
     "tape": "^4.0.0",
+    "tile-cover": "^2.4.1",
+    "turf-centroid": "^1.1.2",
     "turf-point-on-surface": "^1.1.1"
   }
 }
